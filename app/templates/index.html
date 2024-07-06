@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>AiKO</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/Aiko.ico') }}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Simple line icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Header-->
+    <header class="masthead d-flex align-items-center">
+        <div class="container px-4 px-lg-5 text-center">
+            <h1 class="mb-1">Welcome to AiKO</h1>
+            <h3 class="mb-5"><em>Your Personality Career Guidance System</em></h3>
+            <a class="btn btn-primary btn-xl" href="#about">What Career Suits you?</a>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="content-section bg-light" id="about">
+        <div class="container px-4 px-lg-5 text-center">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-10">
+                    <h2>AI Rule-Based Scoring to determine your career by assessing your personality!</h2>
+                    <p class="lead mb-5"></p>
+                    <a class="btn btn-dark btn-xl" href="#services">What is your personality?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services-->
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container px-4 px-lg-5">
+            <div class="content-section-heading">
+                <h2 class="mb-5 text-center">John Holland's six personality types</h2>
+                <p class="text-faded mb-0">John Holland's theory, often used in career assessments, suggests that people are drawn to careers that match their personality types. He categorized personalities into six types: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional (RIASEC). This theory helps individuals find careers where they can thrive based on their interests, skills, and values.</p>
+                <br>
+                <p class="text-faded mb-0">This assessment will generate 3 possible personalities as results, carrying out your personality and traits and future careers.</p>
+                
+                <br>
+                <br>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                            <img src="{{ url_for('static', filename='assets/R.png') }}" alt="Director Icon" class="img-fluid rounded-circle">
+                        </span>
+                        <h4><strong>Realistic</strong></h4>
+                        <p class="text-faded mb-0">People with Realistic interests like work that includes practical, hands-on problems and answers. Often people with Realistic interests do not like careers that involve paperwork or working closely with others. They like working with plants and animals; real-world materials like wood, tools, and machinery; and outside work.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                            <img src="{{ url_for('static', filename='assets/I.png') }}" alt="Director Icon" class="img-fluid rounded-circle">
+                        </span>
+                        <h4><strong>Investigate</strong></h4>
+                        <p class="text-faded mb-0">People with Investigative interests like work that has to do with ideas and thinking rather than physical activity or leading people. They like searching for facts and figuring out problems.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                            <img src="{{ url_for('static', filename='assets/A.png') }}" alt="Director Icon" class="img-fluid rounded-circle">
+                        </span>
+                        <h4><strong>Artistic</strong></h4>
+                        <p class="text-faded mb-0">People with Artistic interests like work that deals with the artistic side of things, such as acting, music, art, and design. They like creativity in their work and work that can be done without following a set of rules.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center">
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                            <img src="{{ url_for('static', filename='assets/S.png') }}" alt="Thinker Icon" class="img-fluid rounded-circle">
+                        </span>
+                        <h4><strong>Socializer</strong></h4>
+                        <p class="text-faded mb-0">People with Social interests like working with others to help them learn and grow. They like working with people more than working with objects, machines, or information. They like teaching, giving advice, and helping and being of service to people.
+
+</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0 text-center">
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                            <img src="{{ url_for('static', filename='assets/E.png') }}" alt="Socializer Icon" class="img-fluid rounded-circle">
+                        </span>
+                        <h4><strong>Enterprising</strong></h4>
+                        <p class="text-faded mb-0">People with Enterprising interests like work that has to do with starting up and carrying out business projects. These people like taking action rather than thinking about things. They like persuading and leading people, making decisions, and taking risks for profits.
+
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <span class="service-icon rounded-circle mx-auto mb-3">
+                            <img src="{{ url_for('static', filename='assets/C.png') }}" alt="Supporter Icon" class="img-fluid rounded-circle">
+                        </span>
+                        <h4><strong>Conventional</strong></h4>
+                        <p class="text-faded mb-0">People with Conventional interests like work that follows set procedures and routines. They prefer working with information and paying attention to details rather than working with ideas. They like working with clear rules and following a strong leader.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+   <!-- Callout-->
+    <section class="callout">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mx-auto mb-5">
+                "Knowing yourself is the beginning of all wisdom"
+                <em>~Aristotle~</em>
+            </h2>
+            <a class="btn btn-primary btn-xl" href="{{ url_for('main.assessment') }}">Start Assessment</a>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container px-4 px-lg-5">
+            <p class="text-muted small mb-0">Copyright &copy; Your Website 2023</p>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

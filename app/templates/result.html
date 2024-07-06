@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIASEC Results</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/Aiko.ico') }}" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='assets/result.png') }}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .mySlides {display:none;}
+        
+        .header {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .slideshow-container {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .w3-button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        .w3-display-left, .w3-display-right {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .w3-display-left {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .w3-display-right {
+            right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Based on your Career Personality Test</h1>
+        <h1>Here are your top 3 Personalities</h1>
+    </div>
+
+    {% for type, slides in slideshows.items() %}
+        <h2>{{ type }}</h2>
+        <div class="slideshow-container w3-content w3-display-container">
+            {% for slide in slides %}
+                <img class="mySlides {{ type }}" src="{{ url_for('static', filename=slide) }}" style="width:100%">
+            {% endfor %}
+            <button class="w3-button w3-display-left" onclick="plusDivs(-1, '{{ type }}')">&#10094;</button>
+            <button class="w3-button w3-display-right" onclick="plusDivs(1, '{{ type }}')">&#10095;</button>
+        </div>
+    {% endfor %}
+
+    <script>
+        var slideIndices = {};
+
+        function plusDivs(n, type) {
+            showDivs(slideIndices[type] += n, type);
+        }
+
+        function showDivs(n, type) {
+            var i;
+            var x = document.getElementsByClassName(type);
+            if (n > x.length) {slideIndices[type] = 1}
+            if (n < 1) {slideIndices[type] = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            x[slideIndices[type]-1].style.display = "block";  
+        }
+
+        {% for type in slideshows.keys() %}
+            slideIndices['{{ type }}'] = 1;
+            showDivs(1, '{{ type }}');
+        {% endfor %}
+    </script>
+
+    <a href="{{ url_for('main.index') }}">
+        <button class="w3-button">Back to Home</button>
+    </a>
+</body>
+</html>

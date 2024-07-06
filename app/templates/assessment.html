@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/assessment-css.css') }}">
+  <title>Personality Career Assessment</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/Aiko.ico') }}" />
+  <style>
+
+    .header-container {
+      background-color: #333; /* Background color of header */
+      color: #fff; /* Text color */
+      text-align: center; /* Center align text */
+      margin: 0; /* Remove default margin */
+      width: 100%; /* Full width */
+      box-sizing: border-box; /* Ensures padding and border are included in width */
+    }
+    
+    /* Heading styles */
+    .header-container h1 {
+      font-family: Arial, sans-serif;
+      font-size: 36px;
+      text-transform: uppercase;
+      margin: 0; /* Remove default margin */
+      background-image: url('/static/assets/img/assessment.png'); /* Correct path to the background image */
+      background-size: cover; /* Adjusts the background image size */
+      background-position: center; /* Centers the background image */
+      padding: 50px; /* Padding inside the h1 element */
+      color: #fff; /* Text color */
+    }
+    
+
+    body {
+      background: url('{{ url_for('static', filename='assets/career.jpg') }}') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    #back-to-homepage {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-container">
+    <h1>Assessment</h1>
+    <h7>This assessment is compossed of 30 statements to be choose upon your preferrd choice. <br>Choose upon you preferred emoji, where Relieved face = 1, Smile = 2 and Hearted Smiley Face = 3</h7>
+  </div>
+
+  <br>
+  <div class="container">
+
+    <form id="assessment-form" method="POST" action="{{ url_for('main.assessment') }}">
+      <div id="questions">
+
+        <div class="question">
+          <p>1. I enjoy solving complex puzzles.</p>
+          <label for="q1_yes">
+            <input type="radio" name="q1" id="q1_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q1_no">
+            <input type="radio" name="q1" id="q1_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q1_maybe">
+            <input type="radio" name="q1" id="q1_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>2. I like to cook and try new recipes.</p>
+          <label for="q2_yes">
+            <input type="radio" name="q2" id="q2_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q2_no">
+            <input type="radio" name="q2" id="q2_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q2_maybe">
+            <input type="radio" name="q2" id="q2_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>3. I prefer working in a team rather than alone.</p>
+          <label for="q3_yes">
+            <input type="radio" name="q3" id="q3_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q3_no">
+            <input type="radio" name="q3" id="q3_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q3_maybe">
+            <input type="radio" name="q3" id="q3_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>4. I am interested in designing and creating new things.</p>
+          <label for="q4_yes">
+            <input type="radio" name="q4" id="q4_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q4_no">
+            <input type="radio" name="q4" id="q4_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q4_maybe">
+            <input type="radio" name="q4" id="q4_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>5. I enjoy helping others with their problems.</p>
+          <label for="q5_yes">
+            <input type="radio" name="q5" id="q5_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q5_no">
+            <input type="radio" name="q5" id="q5_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q5_maybe">
+            <input type="radio" name="q5" id="q5_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>6. I like to organize events or activities.</p>
+          <label for="q6_yes">
+            <input type="radio" name="q6" id="q6_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q6_no">
+            <input type="radio" name="q6" id="q6_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q6_maybe">
+            <input type="radio" name="q6" id="q6_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>7. I am fascinated by scientific discoveries.</p>
+          <label for="q7_yes">
+            <input type="radio" name="q7" id="q7_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q7_no">
+            <input type="radio" name="q7" id="q7_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q7_maybe">
+            <input type="radio" name="q7" id="q7_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>8. I enjoy writing stories or articles.</p>
+          <label for="q8_yes">
+            <input type="radio" name="q8" id="q8_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q8_no">
+            <input type="radio" name="q8" id="q8_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q8_maybe">
+            <input type="radio" name="q8" id="q8_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>9. I like leading group projects.</p>
+          <label for="q9_yes">
+            <input type="radio" name="q9" id="q9_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q9_no">
+            <input type="radio" name="q9" id="q9_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q9_maybe">
+            <input type="radio" name="q9" id="q9_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>10. I enjoy fixing and repairing things.</p>
+          <label for="q10_yes">
+            <input type="radio" name="q10" id="q10_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q10_no">
+            <input type="radio" name="q10" id="q10_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q10_maybe">
+            <input type="radio" name="q10" id="q10_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+
+        <div class="question">
+          <p>11. I prefer working with numbers and data.</p>
+          <label for="q11_yes">
+            <input type="radio" name="q11" id="q11_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q11_no">
+            <input type="radio" name="q11" id="q11_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q11_maybe">
+            <input type="radio" name="q11" id="q11_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>12. I like to teach and share knowledge with others.</p>
+          <label for="q12_yes">
+            <input type="radio" name="q12" id="q12_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q12_no">
+            <input type="radio" name="q12" id="q12_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q12_maybe">
+            <input type="radio" name="q12" id="q12_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>13. I enjoy drawing or painting.</p>
+          <label for="q13_yes">
+            <input type="radio" name="q13" id="q13_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q13_no">
+            <input type="radio" name="q13" id="q13_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q13_maybe">
+            <input type="radio" name="q13" id="q13_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>14. I am interested in starting my own business.</p>
+          <label for="q14_yes">
+            <input type="radio" name="q14" id="q14_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q14_no">
+            <input type="radio" name="q14" id="q14_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q14_maybe">
+            <input type="radio" name="q14" id="q14_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>15. I like to conduct experiments.</p>
+          <label for="q15_yes">
+            <input type="radio" name="q15" id="q15_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q15_no">
+            <input type="radio" name="q15" id="q15_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q15_maybe">
+            <input type="radio" name="q15" id="q15_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>16. I enjoy acting in plays or movies.</p>
+          <label for="q16_yes">
+            <input type="radio" name="q16" id="q16_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q16_no">
+            <input type="radio" name="q16" id="q16_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q16_maybe">
+            <input type="radio" name="q16" id="q16_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>17. I like to persuade people to see things my way.</p>
+          <label for="q17_yes">
+            <input type="radio" name="q17" id="q17_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q17_no">
+            <input type="radio" name="q17" id="q17_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q17_maybe">
+            <input type="radio" name="q17" id="q17_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>18. I enjoy working outdoors.</p>
+          <label for="q18_yes">
+            <input type="radio" name="q18" id="q18_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q18_no">
+            <input type="radio" name="q18" id="q18_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q18_maybe">
+            <input type="radio" name="q18" id="q18_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>19. I prefer jobs that require attention to detail.</p>
+          <label for="q19_yes">
+            <input type="radio" name="q19" id="q19_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q19_no">
+            <input type="radio" name="q19" id="q19_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q19_maybe">
+            <input type="radio" name="q19" id="q19_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>20. I like to take care of animals.</p>
+          <label for="q20_yes">
+            <input type="radio" name="q20" id="q20_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q20_no">
+            <input type="radio" name="q20" id="q20_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q20_maybe">
+            <input type="radio" name="q20" id="q20_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>21. I enjoy building things with my hands.</p>
+          <label for="q21_yes">
+            <input type="radio" name="q21" id="q21_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q21_no">
+            <input type="radio" name="q21" id="q21_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q21_maybe">
+            <input type="radio" name="q21" id="q21_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>22. I am interested in studying human behavior.</p>
+          <label for="q22_yes">
+            <input type="radio" name="q22" id="q22_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q22_no">
+            <input type="radio" name="q22" id="q22_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q22_maybe">
+            <input type="radio" name="q22" id="q22_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>23. I like to create music or play an instrument.</p>
+          <label for="q23_yes">
+            <input type="radio" name="q23" id="q23_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q23_no">
+            <input type="radio" name="q23" id="q23_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q23_maybe">
+            <input type="radio" name="q23" id="q23_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>24. I enjoy managing and leading a team.</p>
+          <label for="q24_yes">
+            <input type="radio" name="q24" id="q24_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q24_no">
+            <input type="radio" name="q24" id="q24_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q24_maybe">
+            <input type="radio" name="q24" id="q24_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>25. I prefer solving math problems.</p>
+          <label for="q25_yes">
+            <input type="radio" name="q25" id="q25_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q25_no">
+            <input type="radio" name="q25" id="q25_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q25_maybe">
+            <input type="radio" name="q25" id="q25_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>26. I like to volunteer for community services.</p>
+          <label for="q26_yes">
+            <input type="radio" name="q26" id="q26_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q26_no">
+            <input type="radio" name="q26" id="q26_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q26_maybe">
+            <input type="radio" name="q26" id="q26_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>27. I enjoy decorating and arranging spaces.</p>
+          <label for="q27_yes">
+            <input type="radio" name="q27" id="q27_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q27_no">
+            <input type="radio" name="q27" id="q27_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q27_maybe">
+            <input type="radio" name="q27" id="q27_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>28. I am interested in law and order.</p>
+          <label for="q28_yes">
+            <input type="radio" name="q28" id="q28_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q28_no">
+            <input type="radio" name="q28" id="q28_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q28_maybe">
+            <input type="radio" name="q28" id="q28_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>29. I like to work with computers and technology.</p>
+          <label for="q29_yes">
+            <input type="radio" name="q29" id="q29_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q29_no">
+            <input type="radio" name="q29" id="q29_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q29_maybe">
+            <input type="radio" name="q29" id="q29_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+        <div class="question">
+          <p>30. I enjoy planning trips and itineraries.</p>
+          <label for="q30_yes">
+            <input type="radio" name="q30" id="q30_yes" value="yes"/>
+            <span><img src="{{ url_for('static', filename='assets/1.png') }}" alt="Yes"></span>
+          </label>
+          <label for="q30_no">
+            <input type="radio" name="q30" id="q30_no" value="no"/>
+            <span><img src="{{ url_for('static', filename='assets/2.png') }}" alt="No"></span>
+          </label>
+          <label for="q30_maybe">
+            <input type="radio" name="q30" id="q30_maybe" value="maybe"/>
+            <span><img src="{{ url_for('static', filename='assets/3.png') }}" alt="Maybe"></span>
+          </label>
+        </div>
+        
+
+
+        
+      </div>
+      <div class="button-container">
+        <button type="button" onclick="window.location.href='{{ url_for('main.index') }}'">Back to Homepage</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.getElementById('assessment-form').onsubmit = function() {
+      const questions = document.querySelectorAll('.question');
+      let allAnswered = true;
+      questions.forEach((question) => {
+        const inputs = question.querySelectorAll('input[type="radio"]');
+        const answered = Array.from(inputs).some(input => input.checked);
+        if (!answered) {
+          allAnswered = false;
+          question.style.border = '2px solid red';
+        } else {
+          question.style.border = 'none';
+        }
+      });
+
+      if (!allAnswered) {
+        alert('Please answer all the questions.');
+      }
+
+      return allAnswered;
+    }
+  </script>
+</body>
+</html>
